@@ -1,11 +1,8 @@
 import React from "react";
+import ProjectView from "./pages/ProjectView.jsx";
 
 function App() {
-  return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
-  );
+  return <ProjectView />;
 }
 
 export default App;
