@@ -7,21 +7,21 @@ const HeaderText = styled.h3`
 `;
 
 export default function Favorites() {
-  const { data, favorites } = useContext(ProjectContext);
-  const projects = useMemo(
+  const { projects, favorites } = useContext(ProjectContext);
+  const favioriteProjects = useMemo(
     () =>
-      data
+      projects
         .filter(({ projectId }) => favorites.includes(projectId))
         .map(({ projectName }) => projectName),
-    [data]
+    [projects]
   );
 
   return (
     <>
       <HeaderText>Favorite Projects</HeaderText>
       <ul>
-        {projects.map((project) => (
-          <li key={project}>{project}</li>
+        {favioriteProjects.map((name) => (
+          <li key={name}>{name}</li>
         ))}
       </ul>
     </>

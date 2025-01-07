@@ -22,11 +22,11 @@ const formItemLayout = {
 };
 
 export default function Detail() {
-  const { selected, setSelected, setData } = useContext(ProjectContext);
+  const { selected, setSelected, setProjects } = useContext(ProjectContext);
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
-    setData((prevItems) =>
+    setProjects((prevItems) =>
       prevItems.map((item) =>
         item.projectId === selected.projectId ? { ...item, ...values } : item
       )

@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 import { ProjectContext } from "../contexts/ProjectContext.jsx";
 
 export default function List() {
-  const { data, setSelected } = useContext(ProjectContext);
+  const { projects, setSelected } = useContext(ProjectContext);
   const columns = [
     {
       title: "Project ID",
@@ -45,6 +45,11 @@ export default function List() {
   ];
 
   return (
-    <Table columns={columns} dataSource={data} pagination={false} bordered />
+    <Table
+      columns={columns}
+      dataSource={projects}
+      pagination={false}
+      bordered
+    />
   );
 }
