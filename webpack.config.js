@@ -28,6 +28,6 @@ module.exports = {
   ],
   devServer: {
     static: path.join(__dirname, 'dist'),
-    port: 3001,
+    port: 3000,
   },
 };
