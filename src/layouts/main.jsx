@@ -6,7 +6,7 @@ const HeaderText = styled.h3`
   margin-left: 0.5rem;
 `;
 
-export default function Favorites() {
+export default function MainLayout() {
   const { projects, favorites } = useContext(ProjectContext);
   const favioriteProjects = useMemo(
     () =>

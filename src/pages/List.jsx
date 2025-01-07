@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Table } from "antd";
 import dayjs from "dayjs";
 import { ProjectContext } from "../contexts/ProjectContext.jsx";
 
 export default function List() {
-  const { projects, setSelected } = useContext(ProjectContext);
+  const navigate = useNavigate();
+  const { projects } = useContext(ProjectContext);
   const columns = [
     {
       title: "Project ID",
@@ -36,8 +38,8 @@ export default function List() {
     {
       title: "",
       key: "action",
-      render: (_, record) => (
-        <Button type="primary" onClick={() => setSelected(record)}>
+      render: (_, { projectId }) => (
+        <Button type="primary" onClick={() => navigate(`/detail/${projectId}`)}>
           Edit
         </Button>
       ),

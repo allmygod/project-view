@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { Form, Button, DatePicker, Input, Typography } from "antd";
 import { ProjectContext } from "../contexts/ProjectContext.jsx";
 
@@ -22,16 +23,19 @@ const formItemLayout = {
 };
 
 export default function Detail() {
-  const { selected, setSelected, setProjects } = useContext(ProjectContext);
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const { projects, setProjects } = useContext(ProjectContext);
   const [form] = Form.useForm();
+  const selected = projects.find(({ projectId }) => projectId === id);
 
   const onFinish = (values) => {
     setProjects((prevItems) =>
       prevItems.map((item) =>
-        item.projectId === selected.projectId ? { ...item, ...values } : item
+        item.projectId === id ? { ...item, ...values } : item
       )
     );
-    setSelected(null);
+    navigate("/");
   };
 
   const onFinishFailed = (errorFields) => {
