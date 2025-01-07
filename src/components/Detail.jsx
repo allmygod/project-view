@@ -21,7 +21,7 @@ const formItemLayout = {
   },
 };
 
-export default function ProjectDetail() {
+export default function Detail() {
   const { selected, setSelected, setData } = useContext(ProjectContext);
   const [form] = Form.useForm();
 
@@ -34,12 +34,17 @@ export default function ProjectDetail() {
     setSelected(null);
   };
 
+  const onFinishFailed = (errorFields) => {
+    console.log(errorFields);
+  };
+
   return (
     <Form
       {...formItemLayout}
       form={form}
       initialValues={selected}
       onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
     >
       <Form.Item label="Project ID">
         <Typography>{selected.projectId}</Typography>

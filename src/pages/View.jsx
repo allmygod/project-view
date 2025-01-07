@@ -2,25 +2,23 @@ import React, { useContext } from "react";
 import { Row, Col } from "antd";
 import styled from "@emotion/styled";
 import { ProjectContext } from "../contexts/ProjectContext.jsx";
-import ProjectTable from "../components/ProjectTable.jsx";
-import ProjectDetail from "../components/ProjectDetail.jsx";
-import FavoriteProjects from "../components/FavoriteProjects.jsx";
+import List from "../components/List.jsx";
+import Detail from "../components/Detail.jsx";
+import Favorites from "../components/Favorites.jsx";
 
 const CustomCol = styled(Col)`
   margin-top: 4rem;
   justify-content: center;
 `;
 
-export default function ProjectView() {
+export default function View() {
   const { selected } = useContext(ProjectContext);
   return (
     <Row>
       <CustomCol span={4}>
-        <FavoriteProjects />
+        <Favorites />
       </CustomCol>
-      <CustomCol span={20}>
-        {selected ? <ProjectDetail /> : <ProjectTable />}
-      </CustomCol>
+      <CustomCol span={20}>{selected ? <Detail /> : <List />}</CustomCol>
     </Row>
   );
 }

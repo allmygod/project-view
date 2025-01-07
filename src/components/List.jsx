@@ -3,7 +3,7 @@ import { Button, Table } from "antd";
 import dayjs from "dayjs";
 import { ProjectContext } from "../contexts/ProjectContext.jsx";
 
-export default function ProjectTable() {
+export default function List() {
   const { data, setSelected } = useContext(ProjectContext);
   const columns = [
     {

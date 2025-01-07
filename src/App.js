@@ -1,8 +1,8 @@
 import React from "react";
-import ProjectView from "./pages/ProjectView.jsx";
+import View from "./pages/View.jsx";
 
 function App() {
-  return <ProjectView />;
+  return <View />;
 }
 
 export default App;
